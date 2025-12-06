@@ -38,18 +38,27 @@ function BannerSlider() {
             onMouseLeave={() => setPaused(false)}
         >
             <div className="w-full h-28 sm:h-36 md:h-44 relative bg-gray-100">
-                {/* slides row: flex and translateX for sliding animation */}
+                {/* slides row: each image takes 100% width of container */}
                 <div
                     className="absolute inset-0 flex"
                     style={{
                         width: `${banners.length * 100}%`,
-                        transform: `translateX(-${index * (100 / banners.length)}%)`,
+                        transform: `translateX(-${(index * 100) / banners.length}%)`,
                         transition: 'transform 500ms ease',
                     }}
                 >
                     {banners.map((src, i) => (
-                        <div key={i} className="w-full flex-shrink-0">
-                            <img src={src} alt={`banner-${i + 1}`} className="w-full h-full object-cover" draggable={false} />
+                        <div
+                            key={i}
+                            className="flex-shrink-0"
+                            style={{ width: `${100 / banners.length}%` }}
+                        >
+                            <img
+                                src={src}
+                                alt={`banner-${i + 1}`}
+                                className="w-full h-full object-cover"
+                                draggable={false}
+                            />
                         </div>
                     ))}
                 </div>
