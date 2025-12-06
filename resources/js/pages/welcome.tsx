@@ -37,7 +37,7 @@ function BannerSlider() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >
-            <div className="w-full h-28 sm:h-36 md:h-44 relative bg-gray-100">
+            <div className="w-full h-44 relative bg-gray-100">
                 {/* slides row: each image takes 100% width of container */}
                 <div
                     className="absolute inset-0 flex"

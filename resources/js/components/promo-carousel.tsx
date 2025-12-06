@@ -132,7 +132,7 @@ function PromoCarousel() {
                                 className="flex-shrink-0"
                                 style={{ width: '85%' }}
                             >
-                                <div className="relative h-44 rounded-3xl overflow-hidden shadow-md bg-gray-200">
+                                <div className="relative h-28 sm:h-36 md:h-44 rounded-3xl overflow-hidden shadow-md bg-gray-200">
                                     <img
                                         src={promo.image}
                                         alt={`Promo ${promo.id}`}
