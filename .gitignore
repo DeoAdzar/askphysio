@@ -2,4 +2,4 @@
 .env.backup
 .env.production
 /public/hot
-database.sqlite
+/database/database.sqlite
