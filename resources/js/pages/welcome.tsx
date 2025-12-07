@@ -1,6 +1,7 @@
 import { Head } from '@inertiajs/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PromoCarousel from '../components/promo-carousel';
+import Footer from '../components/footer';
 
 // Simple BannerSlider component that reads images from public assets.
 // Assumption: place images in `public/images/` (for example: /images/banner1.jpg).
@@ -79,100 +80,6 @@ function BannerSlider() {
     );
 }
 
-// Footer component
-function Footer() {
-    return (
-        <footer className="mt-8 bg-gradient-to-b from-blue-100 to-blue-50 rounded-t-3xl pt-8 pb-6 px-4 mx-0">
-            {/* Message section with illustration */}
-            <div className="flex items-center gap-4 mb-8">
-                <div className="flex-1">
-                    <p className="text-sm text-gray-700 font-medium leading-snug">Sehat Dari Mana Saja dan Hubungi Kami Kapanpun</p>
-                </div>
-                {/* Simple mascot illustration */}
-                <div className="w-24 h-24 flex-shrink-0 relative flex items-center justify-center">
-                    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                        {/* Cyan circle background */}
-                        <circle cx="60" cy="60" r="50" fill="#4FD1E5" opacity="0.4" />
-
-                        {/* Head */}
-                        <circle cx="60" cy="40" r="14" fill="#4FD1E5" />
-
-                        {/* Body */}
-                        <rect x="48" y="58" width="24" height="32" rx="4" fill="#4FD1E5" />
-
-                        {/* Arms */}
-                        <rect x="42" y="62" width="6" height="24" rx="3" fill="#2FA4BF" />
-                        <rect x="72" y="62" width="6" height="24" rx="3" fill="#2FA4BF" />
-
-                        {/* Legs */}
-                        <rect x="50" y="92" width="6" height="18" rx="3" fill="#2FA4BF" />
-                        <rect x="64" y="92" width="6" height="18" rx="3" fill="#2FA4BF" />
-
-                        {/* Plus sign (medical cross) */}
-                        <g transform="translate(60, 45)">
-                            <rect x="-1.5" y="-6" width="3" height="12" fill="#1E40AF" rx="1.5" />
-                            <rect x="-6" y="-1.5" width="12" height="3" fill="#1E40AF" rx="1.5" />
-                        </g>
-
-                        {/* Medical shield */}
-                        <path d="M60 50 L70 45 L70 60 Q70 75 60 85 Q50 75 50 60 L50 45 Z" fill="#4FD1E5" stroke="#1E40AF" strokeWidth="1.5" />
-                    </svg>
-                </div>
-            </div>
-
-            {/* Social Media section */}
-            <div>
-                <h3 className="text-base font-bold text-red-500 mb-4">Sosial Media</h3>
-
-                <div className="space-y-2.5 mb-6">
-                    {/* Instagram */}
-                    <a
-                        href="https://instagram.com/askphysio_"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-2.5 bg-white rounded-lg hover:shadow-sm transition-shadow"
-                    >
-                        <div className="w-9 h-9 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="1" fill="white" />
-                                <circle cx="17.6" cy="6.4" r="1" fill="white" />
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9.5c.828 0 1.5-.672 1.5-1.5s-.672-1.5-1.5-1.5-1.5.672-1.5 1.5.672 1.5 1.5 1.5z" fill="white" />
-                            </svg>
-                        </div>
-                        <span className="text-blue-700 font-medium text-sm">@askphysio_</span>
-                    </a>
-
-                    {/* TikTok */}
-                    <a
-                        href="https://tiktok.com/@askphysio_"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-2.5 bg-white rounded-lg hover:shadow-sm transition-shadow"
-                    >
-                        <div className="w-9 h-9 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.7a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4 2.4 2.4 0 0 1 2.4-2.4c.34 0 .67.03.99.1V9.4a6.15 6.15 0 0 0-.99-.08 6.59 6.59 0 1 0 6.59 6.59V11.9a8.62 8.62 0 0 0 4.7-1.34v-3.87z" fill="white" />
-                            </svg>
-                        </div>
-                        <span className="text-blue-700 font-medium text-sm">@askphysio_</span>
-                    </a>
-                </div>
-            </div>
-
-            {/* Divider */}
-            <div className="h-px bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 mb-4"></div>
-
-            {/* Copyright section */}
-            <div className="text-center">
-                <p className="text-xs text-gray-600 leading-relaxed">
-                    © S1 Fisioterapi | Fakultas Kedokteran |<br />
-                    Universitas Negeri Surabaya
-                </p>
-            </div>
-        </footer>
-    );
-}
-
 export default function Welcome() {
     return (
         <>
@@ -233,7 +140,7 @@ export default function Welcome() {
 
                 </main>
 
-                <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[92%] max-w-[420px] bg-[#06227a] text-white rounded-2xl shadow-lg py-3 px-4">
+                <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[92%] max-w-[420px] bg-[#06227a] text-white rounded-2xl shadow-lg py-3 px-4 z-50">
                     <div className="flex items-center justify-between">
                         {['Beranda', 'Riwayat', 'Profil', 'Pesan', 'Setelan'].map((label) => (
                             <button key={label} className="flex flex-col items-center text-[12px] gap-1 flex-1">
