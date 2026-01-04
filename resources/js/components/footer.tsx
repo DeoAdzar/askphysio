@@ -43,11 +43,18 @@ function Footer() {
                         </p>
                     </div>
                     {/* Mascot image */}
-                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white bg-white">
                         <img
-                            src="https://picsum.photos/128/128"
+                            src="/images/mascot/mascot.png"
                             alt="Mascot"
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                                const t = e.currentTarget as HTMLImageElement;
+                                if (!t.dataset.fallbackSet) {
+                                    t.dataset.fallbackSet = '1';
+                                    t.src = 'https://picsum.photos/128/128';
+                                }
+                            }}
                         />
                     </div>
                 </div>

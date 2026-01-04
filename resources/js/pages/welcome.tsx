@@ -1,5 +1,6 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
+import { Stethoscope, Home, BookOpen, User, Users, Grid2X2, Clock, MessageCircle, Settings, VenusAndMars, BookMarked, Pill } from 'lucide-react';
 import PromoCarousel from '../components/promo-carousel';
 import Footer from '../components/footer';
 
@@ -7,11 +8,20 @@ import Footer from '../components/footer';
 // Assumption: place images in `public/images/` (for example: /images/banner1.jpg).
 function BannerSlider() {
     // Using Lorem Picsum placeholder images for now (seeded so they remain consistent).
-    const banners = [
-        'https://picsum.photos/seed/banner1/1200/600',
-        'https://picsum.photos/seed/banner2/1200/600',
-        'https://picsum.photos/seed/banner3/1200/600',
+    // Prefer local assets in public/images/banner/ (e.g. /public/images/banner/banner1.jpg).
+    // If you haven't uploaded images yet, the code will fall back to Picsum placeholders.
+    const localBanners = [
+        '/images/banner/banner1.png',
+        '/images/banner/banner2.png',
+        '/images/banner/banner3.png',
     ];
+
+    const banners = localBanners.map((p, i) => {
+        // Use the local path; the browser will request it. If asset is missing, the
+        // <img> will fail to load but we still keep a valid URL (picsum) as fallback
+        // by using the onError handler in the <img> element below.
+        return p;
+    });
 
     const [index, setIndex] = useState(0);
     const [paused, setPaused] = useState(false);
@@ -110,15 +120,53 @@ export default function Welcome() {
                     <BannerSlider />
 
                     <section className="mt-5 grid grid-cols-4 gap-4 text-center">
-                        {['Konsultasi', 'Apotek', 'Edukasi', 'Fisioterapi', 'Kesehatan', 'Lainnya'].map((label, i) => (
-                            <button key={i} className="flex flex-col items-center gap-2 py-2">
-                                <div className="w-14 h-14 rounded-full bg-[#dbe9ff] flex items-center justify-center shadow-inner">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="8" stroke="#1040B0" strokeWidth="1.2" />
-                                    </svg>
-                                </div>
-                                <div className="text-[12px] leading-tight mt-1 text-[#10207A]">{label}</div>
-                            </button>
+                        {[
+                            {
+                                label: 'Konsultasi',
+                                href: '/physiotherapy',
+                                icon: <Stethoscope size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Pharmacy',
+                                href: '#',
+                                icon: <Pill size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Edukasi',
+                                href: '#',
+                                icon: <BookMarked size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Layanan Fisioterapi',
+                                href: '/physiotherapy',
+                                icon: <User size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Kesehatan Seksual',
+                                href: '#',
+                                icon: <VenusAndMars size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Lihat Semua',
+                                href: '#',
+                                icon: <Grid2X2 size={32} color="#1040B0" strokeWidth={2} />
+                            },
+                        ].map((item, i) => (
+                            item.href === '#' ? (
+                                <button key={i} className="flex flex-col items-center gap-2 py-2">
+                                    <div className="w-14 h-14 rounded-full bg-[#dbe9ff] flex items-center justify-center shadow-inner">
+                                        {item.icon}
+                                    </div>
+                                    <div className="text-[12px] leading-tight mt-1 text-[#10207A]">{item.label}</div>
+                                </button>
+                            ) : (
+                                <Link key={i} href={item.href} className="flex flex-col items-center gap-2 py-2">
+                                    <div className="w-14 h-14 rounded-full bg-[#dbe9ff] flex items-center justify-center shadow-inner hover:bg-[#c5d9ff] transition-colors">
+                                        {item.icon}
+                                    </div>
+                                    <div className="text-[12px] leading-tight mt-1 text-[#10207A]">{item.label}</div>
+                                </Link>
+                            )
                         ))}
                     </section>
 
@@ -142,14 +190,33 @@ export default function Welcome() {
 
                 <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[92%] max-w-[420px] bg-[#06227a] text-white rounded-2xl shadow-lg py-3 px-4 z-50">
                     <div className="flex items-center justify-between">
-                        {['Beranda', 'Riwayat', 'Profil', 'Pesan', 'Setelan'].map((label) => (
-                            <button key={label} className="flex flex-col items-center text-[12px] gap-1 flex-1">
-                                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="8" stroke="#fff" strokeWidth="1" />
-                                    </svg>
+                        {[
+                            {
+                                label: 'Beranda',
+                                icon: <Home size={20} color="#fff" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Riwayat',
+                                icon: <Clock size={20} color="#fff" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Profil',
+                                icon: <User size={20} color="#fff" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Pesan',
+                                icon: <MessageCircle size={20} color="#fff" strokeWidth={2} />
+                            },
+                            {
+                                label: 'Setting',
+                                icon: <Settings size={20} color="#fff" strokeWidth={2} />
+                            },
+                        ].map((item) => (
+                            <button key={item.label} className="flex flex-col items-center text-[12px] gap-1 flex-1">
+                                <div className="w-8 h-8 flex items-center justify-center">
+                                    {item.icon}
                                 </div>
-                                <span className="text-[11px]">{label}</span>
+                                <span className="text-[11px]">{item.label}</span>
                             </button>
                         ))}
                     </div>

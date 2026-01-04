@@ -1,23 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 
 function PromoCarousel() {
+    // Prefer local promo images in public/images/promo/ (promo1.png, promo2.png, ...).
+    // If the asset is missing, each <img> has an onError fallback to a Picsum placeholder.
     const promos = [
-        {
-            id: 1,
-            image: 'https://picsum.photos/seed/promo1/800/400',
-        },
-        {
-            id: 2,
-            image: 'https://picsum.photos/seed/promo2/800/400',
-        },
-        {
-            id: 3,
-            image: 'https://picsum.photos/seed/promo3/800/400',
-        },
-        {
-            id: 4,
-            image: 'https://picsum.photos/seed/promo4/800/400',
-        },
+        { id: 1, image: '/images/promo/promo1.png', fallback: 'https://picsum.photos/seed/promo1/800/400' },
+        { id: 2, image: '/images/promo/promo2.png', fallback: 'https://picsum.photos/seed/promo2/800/400' },
+        { id: 3, image: '/images/promo/promo3.png', fallback: 'https://picsum.photos/seed/promo3/800/400' },
+        { id: 4, image: '/images/promo/promo4.png', fallback: 'https://picsum.photos/seed/promo4/800/400' },
     ];
 
     const [index, setIndex] = useState(0);
@@ -138,6 +128,10 @@ function PromoCarousel() {
                                         alt={`Promo ${promo.id}`}
                                         className="w-full h-full object-cover pointer-events-none"
                                         draggable={false}
+                                        onError={(e) => {
+                                            const target = e.currentTarget as HTMLImageElement;
+                                            if (target.src !== promo.fallback) target.src = promo.fallback;
+                                        }}
                                     />
                                 </div>
                             </div>

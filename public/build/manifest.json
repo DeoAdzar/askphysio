@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DFJZxezk.css",
+    "file": "assets/app-C4hYuBzY.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -8,19 +8,45 @@
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-BDJ_m_4P.js",
+    "file": "assets/app-DCD5X0W8.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
     "dynamicImports": [
+      "resources/js/pages/specializations/index.tsx",
+      "resources/js/pages/specializations/show.tsx",
       "resources/js/pages/welcome.tsx"
     ],
     "css": [
-      "assets/app-DFJZxezk.css"
+      "assets/app-C4hYuBzY.css"
+    ]
+  },
+  "resources/js/pages/specializations/index.tsx": {
+    "file": "assets/index-CSL0a3AA.js",
+    "name": "index",
+    "src": "resources/js/pages/specializations/index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx"
+    ],
+    "css": [
+      "assets/app-C4hYuBzY.css"
+    ]
+  },
+  "resources/js/pages/specializations/show.tsx": {
+    "file": "assets/show-Bg_Cj-oc.js",
+    "name": "show",
+    "src": "resources/js/pages/specializations/show.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx"
+    ],
+    "css": [
+      "assets/app-C4hYuBzY.css"
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-CC1bIo4i.js",
+    "file": "assets/welcome-Cys7ANGz.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
@@ -28,7 +54,7 @@
       "resources/js/app.tsx"
     ],
     "css": [
-      "assets/app-DFJZxezk.css"
+      "assets/app-C4hYuBzY.css"
     ]
   }
 }
