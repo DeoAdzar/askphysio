@@ -1,4 +1,11 @@
 {
+  "_user-CH_rx7KC.js": {
+    "file": "assets/user-CH_rx7KC.js",
+    "name": "user",
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
   "resources/css/app.css": {
     "file": "assets/app-C4hYuBzY.css",
     "src": "resources/css/app.css",
@@ -8,7 +15,7 @@
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-DCD5X0W8.js",
+    "file": "assets/app-CpTLDqMO.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -22,36 +29,39 @@
     ]
   },
   "resources/js/pages/specializations/index.tsx": {
-    "file": "assets/index-CSL0a3AA.js",
+    "file": "assets/index-CIGNtIV0.js",
     "name": "index",
     "src": "resources/js/pages/specializations/index.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.tsx"
+      "resources/js/app.tsx",
+      "_user-CH_rx7KC.js"
     ],
     "css": [
       "assets/app-C4hYuBzY.css"
     ]
   },
   "resources/js/pages/specializations/show.tsx": {
-    "file": "assets/show-Bg_Cj-oc.js",
+    "file": "assets/show-Ci9f9hAm.js",
     "name": "show",
     "src": "resources/js/pages/specializations/show.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.tsx"
+      "resources/js/app.tsx",
+      "_user-CH_rx7KC.js"
     ],
     "css": [
       "assets/app-C4hYuBzY.css"
     ]
   },
   "resources/js/pages/welcome.tsx": {
-    "file": "assets/welcome-Cys7ANGz.js",
+    "file": "assets/welcome-CwR4wVyY.js",
     "name": "welcome",
     "src": "resources/js/pages/welcome.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.tsx"
+      "resources/js/app.tsx",
+      "_user-CH_rx7KC.js"
     ],
     "css": [
       "assets/app-C4hYuBzY.css"
